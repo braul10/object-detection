@@ -1,6 +1,6 @@
 # Object detection
 
-Using python and [Yolos](https://huggingface.co/hustvl/yolos-tiny)
+Very simple app using python and [Yolos](https://huggingface.co/hustvl/yolos-tiny) to detect objects in images.
 
 ### Tested with:
 
