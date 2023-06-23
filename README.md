@@ -1,5 +1,7 @@
 # Object detection
 
+Using python and [Yolos](https://huggingface.co/hustvl/yolos-tiny)
+
 ### Tested with:
 
 ```shell
