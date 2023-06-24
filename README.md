@@ -23,7 +23,7 @@ It downloads the model (first time only)
 
 And then it opens and you can try it with any image:
 
-![App screenshot](images/im1.png)
+![App screenshot](images/screenshot.png)
 
 To finish:
 
