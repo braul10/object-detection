@@ -27,6 +27,29 @@ class App:
 
         self.canvas2 = tk.Canvas(root, width=self.canvas_size[0], height=self.canvas_size[1], bg="black")
         self.canvas2.pack(side='left')
+        self.colors = [
+            "Red",
+            "Green",
+            "Blue",
+            "Yellow",
+            "Orange",
+            "Pink",
+            "Purple",
+            "Brown",
+            "Gray",
+            "Cyan",
+            "Magenta",
+            "Turquoise",
+            "Lime",
+            "SkyBlue",
+            "Beige",
+            "Gold",
+            "Silver",
+            "Coral",
+            "White",
+            "Black"
+        ];
+
 
     def load_image(self):
         self.canvas.delete('all')
@@ -62,6 +85,7 @@ class App:
         scale_y = self.image2.height() / original_image.height
 
         # Dibujamos los rectángulos de detección de objetos
+        count = 0
         for score, label, box in zip(results["scores"], results["labels"], results["boxes"]):
             box = [round(i, 2) for i in box.tolist()]
             print(f"{self.model.config.id2label[label.item()]} ({round(score.item(), 3)}) -> {box}")
@@ -69,13 +93,14 @@ class App:
                                           box[1]*scale_y + y_offset,
                                           box[2]*scale_x + x_offset,
                                           box[3]*scale_y + y_offset,
-                                          outline='red')
+                                          outline=self.colors[count % len(self.colors)])
             label_name = self.model.config.id2label[label.item()]
             self.canvas2.create_text(box[0]*scale_x + x_offset,
                                     box[1]*scale_y + y_offset - 17,
                                     anchor='nw',
                                     text=label_name,
-                                    fill='red')
+                                    fill=self.colors[count % len(self.colors)])
+            count += 1
 
 root = tk.Tk()
 app = App(root)
